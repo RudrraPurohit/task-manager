@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Task Customizer</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+<style>
+  *{
+    border: 10px transparent white;
+  }
+  @media screen and (orentation:portrait){
+    .lists{
+      left: 50px;
+    }
+  }
+  .lists {
+    list-style: none;
+    margin-top: 10px;
+    margin-left: 200px;
+    margin: auto;
+    position: relative;
+    left: 480px;
+  }
+  .delete{
+    display: block;
+  }
+</style>
+
+<body>
+  <div class="container-fluid mt-5  rounded " style="width: 75vh;">
+    <h1 class="text-center">Task Manager</h1>
+    <div class="d-flex justify-content-center mt-4">
+      <input type="text" class="form-control w-50 " id="userInput">
+      <button class="btn btn-success" id="addTask" onclick="deleteTask">Add Task</button>
+
+    </div>
+    <button class="btn btn-danger mt-2 " style="display: none; width: 200px; " id="deleteBtn" onclick="deleteTask">Delete Task</button>
+    
+  </div>
+  <script>
+    let ul = document.createElement("ul")
+    document.body.appendChild(ul)
+    document.getElementById("addTask").addEventListener('click', function () {
+      let li = document.createElement("li")
+      li.className = "lists"
+      li.textContent = document.getElementById("userInput").value
+      ul.appendChild(li)
+      document.getElementById("deleteBtn").style="display:block; margin-left:250px;"
+      document.getElementById("deleteBtn").addEventListener('click', function () {
+                        ul.textContent=""
+                        document.getElementById("deleteBtn").style="display:none;"
+                        
+
+      })
+     
+    })
+
+  </script>
+
+
+</body>
+
+</html>
